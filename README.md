@@ -4,4 +4,5 @@ Rohr2 software's nozzle.out output file is checked against user defined allowabl
 The results are written to *.xls file.
 
 For instructions open: ! start here - sample data and instructions\allowables.ini file.
+                       *.jar file for running the program is also available in this folder
 

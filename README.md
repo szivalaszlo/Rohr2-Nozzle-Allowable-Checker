@@ -27,3 +27,5 @@
 + **Example command**:
 	+ java -jar C:\Rohr2Results.jar argument1 argument2 argument3
 	+ java -jar C:\Rohr2Results.jar c:\nozzle.out c:\allowables.ini c:\results.xls
+
+![](how_to.gif)

@@ -15,7 +15,7 @@
 
 
 ## Quick use
-+ The runnable ***.jar**, a sample **nozzle.out** and the editable **allowables.ini **file can be found here: [ ! start here - sample data and instructions](https://github.com/szivalaszlo/Rohr2-Nozzle-Allowable-Checker/tree/master/!%20start%20here%20-%20sample%20data%20and%20instructions)
++ The runnable ***.jar**, a sample **nozzle.out** and the editable **allowables.ini** file can be found here: [ ! start here - sample data and instructions](https://github.com/szivalaszlo/Rohr2-Nozzle-Allowable-Checker/tree/master/!%20start%20here%20-%20sample%20data%20and%20instructions)
 
 + Open allowables.ini for detailed instructions and for defining the allowable loads
 

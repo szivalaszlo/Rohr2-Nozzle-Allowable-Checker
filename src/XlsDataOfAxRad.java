@@ -18,6 +18,7 @@ public class XlsDataOfAxRad extends XlsData {
 	private HashMap<String, CellStyle> cellStyles;
 	private int [] valueColumnNumbers, utilisationColumnNumbers;
 	private int startRow;
+	private boolean isOK;
 	
 	public XlsDataOfAxRad(Sheet sheet) {
 		super(sheet);
@@ -34,6 +35,7 @@ public class XlsDataOfAxRad extends XlsData {
 		axRadTextList.put(13, "%");
 		axRadTextList.put(14, "Mrad [kNm]");
 		axRadTextList.put(17, "%");
+		isOK = true;
 	}
 	
 	public void setDataAndFormat() {
@@ -89,7 +91,9 @@ public class XlsDataOfAxRad extends XlsData {
 	private void writeLoadcaseLines() {
 		int rowCounterLoadcase = startRow + 1;
 		for(int k=0; k<loadcases.size(); k++) {
-			setOKStatus();
+			if(isOK) {
+				setOKStatus();
+			}
 			Row currentLoadcaseRow = sheet.getRow(rowCounterLoadcase);
 			Cell nameCell = currentLoadcaseRow.getCell(1);
 			LoadCase currentLoadcase = loadcases.get(k);
@@ -123,6 +127,7 @@ public class XlsDataOfAxRad extends XlsData {
 		CellUtil.setAlignment(nameCell, HorizontalAlignment.CENTER);
 		CellUtil.setVerticalAlignment(nameCell, VerticalAlignment.CENTER);
 		nameCell.setCellValue("Not OK");
+		isOK = false;
 	}
 	
 	private boolean utilisationOver100(double [][] utilisation) {

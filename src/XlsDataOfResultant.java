@@ -18,6 +18,7 @@ public class XlsDataOfResultant extends XlsData {
 	private HashMap<String, CellStyle> cellStyles;
 	private int [] valueColumnNumbers, utilisationColumnNumbers;
 	private int startRow;
+	private boolean isOK;
 	
 	public XlsDataOfResultant(Sheet sheet) {
 		super(sheet);
@@ -30,6 +31,7 @@ public class XlsDataOfResultant extends XlsData {
 		resultantTextList.put(5, "%");
 		resultantTextList.put(6, "Mres [kNm]");
 		resultantTextList.put(9, "%");
+		isOK = true;
 	}
 	
 	public void setDataAndFormat() {
@@ -69,7 +71,9 @@ public class XlsDataOfResultant extends XlsData {
 	private void writeLoadcaseLines() {
 		int rowCounterLoadcase = startRow + 1;
 		for(int k=0; k<loadcases.size(); k++) {
-			setOKStatus();
+			if(isOK) {
+				setOKStatus();
+			}
 			Row currentLoadcaseRow = sheet.getRow(rowCounterLoadcase);
 			Cell nameCell = currentLoadcaseRow.getCell(1);
 			LoadCase currentLoadcase = loadcases.get(k);
@@ -116,6 +120,7 @@ public class XlsDataOfResultant extends XlsData {
 		CellUtil.setAlignment(nameCell, HorizontalAlignment.CENTER);
 		CellUtil.setVerticalAlignment(nameCell, VerticalAlignment.CENTER);
 		nameCell.setCellValue("Not OK");
+		isOK = false;
 	}
 	
 	private boolean utilisationOver100(double [] utilisation) {
